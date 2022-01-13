@@ -131,7 +131,7 @@ $("#city-search").submit(function(event){
     searchBtn();
 })
 
-$("#search-btn").submit(function(event){
+$("#search-btn").click(function(event){
     event.preventDefault();
     searchBtn();
 })
