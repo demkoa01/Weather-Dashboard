@@ -4,16 +4,35 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width initial-scale=1.0">
         <title>Weather Dashboard</title>
+
+        <!-- link stylesheet -->
         <link rel="stylesheet" href="assets/style.css">
     </head>
 
     <body>
+        <!-- header section of page -->
         <header class="hero">
             <h1>Weather Dashboard</h1>
         </header>
 
-        <div></div>
+        <!-- left side of page w/ city search section-->
+        <div class="city-search">
+            <form>
+                <h2>Search for a City:</h2>
+                <input type="text" id="city" placeholder="San Diego">
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </div>
 
+        <!-- top of page that displays city's current weather -->
+        <div class="current-day"></div>
+
+        <!-- 5-day forecast of city's weather -->
+        <div class="5-day-forecast">
+            <h3>5-Day Forecast:</h3>
+        </div>
+
+        <!-- link js file -->
         <script src="assets/script.js"></script>
     </body>
 
