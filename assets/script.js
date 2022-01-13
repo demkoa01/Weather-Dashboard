@@ -21,17 +21,29 @@ $(document).ready(function (){
                 iconImg.attr("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png");
                 $("#city").append(iconImg);
 
+                // update background of UV index color
+                var uvi = parseInt(data.current.uvi);
+                if(uvi <= 2) {
+                    $(".color").css({"background-color":"green", "color":"white"});
+                } else if(uvi >=3 && uvi <=5){
+                    $(".color").css({"background-color":"yellow", "color":"black"});
+                } else if (uvi >=8 && uvi <=10) {
+                    $(".color").css({"background-color":"red", "color":"white"});
+                } else {
+                    $(".color").css({"background-color":"violet", "color":"white"});
+                }
+
                 // output current data for the city:
                 $("#temp").text("Temperature: " + data.current.temp + " F");
                 $("#humidity").text("Humidity: " + data.current.humidity + " %");
                 $("#wind").text("Wind Speed: " + data.current.wind_speed + " MPH");
-                $("#uv-index").text("UX Index: " + data.current.uvi);
+                $(".color").text(data.current.uvi);
 
                 $("#current").css({"display":"block"});
 
                 var daily = data.daily;
 
-                for(var i=1; i<daily.length - 2 ; i++) {
+                for(var i=1; i < daily.length - 2 ; i++) {
                     var dailyDate = moment.unix(daily[i].dt).format("dddd, MM/DD/YYYY");
                     var dailyTemp = daily[i].temp.day;
                     var dailyHum = daily[i].humidity;
@@ -46,7 +58,7 @@ $(document).ready(function (){
                     var imgIcon = $("<img>");
 
                     hDate.text(dailyDate);
-                    imgIcon.attr("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png");
+                    imgIcon.attr("src", "https://openweathermap.org/img/wn/" + dailyIcon + "@2x.png");
                     imgIcon.addClass("img-fluid");
                     imgIcon.css({"width":"100%"});
                     pTemp.text("TEMP: " + dailyTemp + " F");
@@ -58,9 +70,9 @@ $(document).ready(function (){
                     dailyDiv.append(pTemp);
                     dailyDiv.append(pHum);
                     dailyDiv.append(pWind);
-                    $(".card-deck").css({"display":"block"});
+                    $(".card-deck").append(dailyDiv);
 
-                    $(".five-day").css({"display":"block"});
+                    $("#five-day").css({"display":"block"});
                 }
             })
     
