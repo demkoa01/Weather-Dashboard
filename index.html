@@ -6,82 +6,57 @@
         <title>Weather Dashboard</title>
 
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
         <!-- link stylesheet -->
         <link rel="stylesheet" href="assets/style.css">
     </head>
 
     <body>
         <!-- header section of page -->
-        <header class="hero">
-            <h1>Weather Dashboard</h1>
+        <header class="hero navbar navbar-dark bg-dark">
+            <h1 class="text-light mx-auto display-4">Weather Dashboard</h1>
         </header>
 
         <div class="containter">
             <div class="row">
                 <!-- left side of page w/ city search section-->
-                <div class="col-4 city-search">
-                    <form>
+                <div class="col-lg-4">
+                    <div class="card p-2 mb-2">
                         <h2>Search for a City:</h2>
-                        <input type="text" class="form-control" id="city" placeholder="San Diego">
-                        <button type="button" class="btn" id="search-btn"><i class="fas fa-search"></i>Search</button>
-                    </form>
+                        <form class="form-inline" id="city-search">
+                            <input type="search" class="form-control" id="city" placeholder="San Diego">
+                            <button type="button" class="btn" id="search-btn"><i class="fas fa-search"></i>Search</button>
+                        </form>
+                        <!-- save city's that we're previously searched for as buttons -->
+                        <ul class="list-group mt-2" id="city-list"></ul>
+                    </div>
                 </div>
 
                 <!-- top of page that displays city's current weather -->
-                <div class="current-day col-8">
-                    <div class="row mr-0">
-                        <div class="col-12">
-                            <div class="row">
-                                <div class="col-12">
-                                    <span id="city-name" class="city-name align-middle"></span>
-                                    <img id="current-pic" src="placeholder" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="temperature"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="humidity"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="wind-speed"></p>
-                            </div>
-                        </div> 
-                        <div class="row">
-                            <div class="col-12">
-                                <p id="uv-index"></p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-8">
+                    <section class="card p-2" id="current" style="display:none;">
+                        <h2 id="city"></h2>
+                        <h5 id="date"></h5>
+                        <p id="temp"></p>
+                        <p id="humidity"></p>
+                        <p id="wind"></p>
+                        <p id="ux-index"></p>
+                    </section>
+                    <!-- 5-day forecast of city's weather -->
+                    <section class="mt-2 mb-2" id="five-day" style="display: none;">
+                        <h3>5-Day Forecase:</h3>
+                        <div class="card-deck"></div>
+                    </section>
                 </div>
-
-                <!-- 5-day forecast of city's weather -->
-                <div class="row">
-                    <div class="col-12 5-day-forecast">
-                        <h3>5-Day Forecast:</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-                </div>
-
             </div>
         </div>
 
         <!-- link js file -->
         <script src="assets/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     </body>
 
 </html>
