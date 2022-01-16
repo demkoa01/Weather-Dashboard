@@ -1,0 +1,12 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    display: block;
+}

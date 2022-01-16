@@ -100,6 +100,7 @@ function getWeather() {
         })
 };
 
+// start at last city that was entered on page refresh
 function startData() {
     cityName = localStorage.getItem("cityname");
     if (cityName !== null) {
@@ -111,6 +112,7 @@ function startData() {
     }
 }
 
+// get city name
 function searchBtn() {
     cityName = $("input").val().trim();
 
@@ -126,6 +128,7 @@ function searchBtn() {
 
 startData();
 
+// on click of search button next to form
 $("#city-search").submit(function(event){
     event.preventDefault();
     searchBtn();
@@ -136,6 +139,7 @@ $("#search-btn").click(function(event){
     searchBtn();
 })
 
+// on click of a city in the saved list
 $("ul").on("click", "button", function(){
     cityName = $(this).text();
     console.log(cityName);
