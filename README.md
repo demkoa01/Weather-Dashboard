@@ -15,4 +15,5 @@
 ### URL: https://demkoa01.github.io/Weather-Dashboard/
 ### GitHub: https://github.com/demkoa01/Weather-Dashboard
 
-### Screenshot: 
+### Screenshot: ![image](https://user-images.githubusercontent.com/93881224/149674672-57cc865e-f482-47df-a387-5f535655a486.png)
+ 
